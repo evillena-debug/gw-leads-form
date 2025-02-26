@@ -2,9 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import WorkspaceHeader from "./WorkspaceHeader";
-import FormTitle from "./FormTitle";
-import UsernameField from "./UsernameField";
-import NotificationOptions from "./NotificationOptions";
 import TermsAndConditions from "./TermsAndConditions";
 import SubmitButton from "./SubmitButton";
 import regionsAndCities from "../../../data/regionsAndCities.json";
@@ -58,11 +55,13 @@ const AccessForm: React.FC = () => {
         <WorkspaceHeader />
         <div className="w-full h-px bg-zinc-200 mb-6" />
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <FormTitle />
-          <UsernameField />
           <div className="flex flex-col gap-2">
+            <h2 className="font-semibold text-lg">Información de la organización</h2>
+            <p className="text-sm text-gray-600">
+              El nombre del dominio y la dirección se usan para identificar la organización en Google Workspace, Cloud Identity y la actualización de Chrome Enterprise. Más información
+            </p>
             <label htmlFor="customerDomain" className="font-semibold">
-              Cliente del dominio
+              Nombre del dominio
             </label>
             <input
               type="text"
@@ -73,8 +72,6 @@ const AccessForm: React.FC = () => {
               className="p-2 border border-gray-300 rounded"
               required
             />
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="organizationName" className="font-semibold">
               Nombre de la organización
             </label>
@@ -87,22 +84,6 @@ const AccessForm: React.FC = () => {
               className="p-2 border border-gray-300 rounded"
               required
             />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="customerEmail" className="font-semibold">
-              Correo electrónico
-            </label>
-            <input
-              type="email"
-              id="customerEmail"
-              value={customerEmail}
-              onChange={(e) => setCustomerEmail(e.target.value)}
-              placeholder="ej. usuario@midominio.com"
-              className="p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="countryCode" className="font-semibold">
               País/Región
             </label>
@@ -115,8 +96,6 @@ const AccessForm: React.FC = () => {
             >
               <option value="CL">Chile</option>
             </select>
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="addressLine1" className="font-semibold">
               Dirección
             </label>
@@ -129,8 +108,6 @@ const AccessForm: React.FC = () => {
               className="p-2 border border-gray-300 rounded"
               required
             />
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="postalCode" className="font-semibold">
               Código postal
             </label>
@@ -143,8 +120,6 @@ const AccessForm: React.FC = () => {
               className="p-2 border border-gray-300 rounded"
               required
             />
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="region" className="font-semibold">
               Región
             </label>
@@ -162,8 +137,6 @@ const AccessForm: React.FC = () => {
                 </option>
               ))}
             </select>
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="locality" className="font-semibold">
               Comuna
             </label>
@@ -184,63 +157,84 @@ const AccessForm: React.FC = () => {
             </select>
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="firstName" className="font-semibold">
-              Nombre
-            </label>
-            <input
-              type="text"
-              id="firstName"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="ej. Juan"
-              className="p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="lastName" className="font-semibold">
-              Apellido
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="ej. Pérez"
-              className="p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="phoneNumber" className="font-semibold">
-              Teléfono
-            </label>
-            <input
-              type="text"
-              id="phoneNumber"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              placeholder="ej. +1234567890"
-              className="p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="alternateEmail" className="font-semibold">
-              Dirección de correo electrónico alternativa
+            <h2 className="font-semibold text-lg">Información de contacto</h2>
+            <p className="text-sm text-gray-600">
+              El nombre y la dirección de correo electrónico se usan a fin de crear la cuenta de administrador inicial para pedidos de Google Workspace, Cloud Identity y la actualización de Chrome Enterprise. Más información
+            </p>
+            <label htmlFor="customerEmail" className="font-semibold">
+              Correo electrónico
             </label>
             <input
               type="email"
-              id="alternateEmail"
-              value={alternateEmail}
-              onChange={(e) => setAlternateEmail(e.target.value)}
-              placeholder="ej. alternativo@otrodominio.com"
+              id="customerEmail"
+              value={customerEmail}
+              onChange={(e) => setCustomerEmail(e.target.value)}
+              placeholder="ej. usuario@midominio.com"
               className="p-2 border border-gray-300 rounded"
               required
             />
+            <div className="flex gap-2">
+              <div className="flex flex-col gap-2 w-1/2">
+                <label htmlFor="firstName" className="font-semibold">
+                  Nombre
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="ej. Juan"
+                  className="p-2 border border-gray-300 rounded"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-2 w-1/2">
+                <label htmlFor="lastName" className="font-semibold">
+                  Apellido
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="ej. Pérez"
+                  className="p-2 border border-gray-300 rounded"
+                  required
+                />
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <div className="flex flex-col gap-2 w-1/2">
+                <label htmlFor="phoneNumber" className="font-semibold">
+                  Teléfono
+                </label>
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="ej. +1234567890"
+                  className="p-2 border border-gray-300 rounded"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-2 w-1/2">
+                <label htmlFor="alternateEmail" className="font-semibold">
+                  Dirección de correo electrónico alternativa
+                </label>
+                <input
+                  type="email"
+                  id="alternateEmail"
+                  value={alternateEmail}
+                  onChange={(e) => setAlternateEmail(e.target.value)}
+                  placeholder="ej. alternativo@otrodominio.com"
+                  className="p-2 border border-gray-300 rounded"
+                  required
+                />
+              </div>
+            </div>
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          <NotificationOptions />
           <TermsAndConditions />
           <SubmitButton />
         </form>
