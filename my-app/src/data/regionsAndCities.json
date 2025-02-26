@@ -1,0 +1,75 @@
+{
+  "CL": {
+    "CL-RM": {
+      "name": "Región Metropolitana de Santiago",
+      "localities": [
+        "Santiago", "Providencia", "Las Condes", "Puente Alto",
+        "Colina", "Lampa", "Tiltil",
+        "San José de Maipo", "Pirque"
+      ]
+    },
+    "CL-VS": {
+      "name": "Región de Valparaíso",
+      "localities": [
+        "Valparaíso", "Viña del Mar", "Concón",
+        "San Antonio", "Cartagena", "El Quisco"
+      ]
+    },
+    "CL-AP": {
+      "name": "Región de Arica y Parinacota",
+      "localities": ["Arica", "Putre"]
+    },
+    "CL-TA": {
+      "name": "Región de Tarapacá",
+      "localities": ["Iquique", "Alto Hospicio"]
+    },
+    "CL-AN": {
+      "name": "Región de Antofagasta",
+      "localities": ["Antofagasta", "Calama"]
+    },
+    "CL-AT": {
+      "name": "Región de Atacama",
+      "localities": ["Copiapó", "Vallenar"]
+    },
+    "CL-CO": {
+      "name": "Región de Coquimbo",
+      "localities": ["La Serena", "Coquimbo"]
+    },
+    "CL-LI": {
+      "name": "Región del Libertador General Bernardo O'Higgins",
+      "localities": ["Rancagua", "San Fernando"]
+    },
+    "CL-ML": {
+      "name": "Región del Maule",
+      "localities": ["Talca", "Curicó"]
+    },
+    "CL-NB": {
+      "name": "Región de Ñuble",
+      "localities": ["Chillán", "San Carlos"]
+    },
+    "CL-BI": {
+      "name": "Región del Biobío",
+      "localities": ["Concepción", "Los Ángeles"]
+    },
+    "CL-AR": {
+      "name": "Región de La Araucanía",
+      "localities": ["Temuco", "Villarrica"]
+    },
+    "CL-LR": {
+      "name": "Región de Los Ríos",
+      "localities": ["Valdivia", "La Unión"]
+    },
+    "CL-LL": {
+      "name": "Región de Los Lagos",
+      "localities": ["Puerto Montt", "Osorno"]
+    },
+    "CL-AI": {
+      "name": "Región Aysén del General Carlos Ibáñez del Campo",
+      "localities": ["Coyhaique", "Puerto Aysén"]
+    },
+    "CL-MA": {
+      "name": "Región de Magallanes y de la Antártica Chilena",
+      "localities": ["Punta Arenas", "Puerto Natales"]
+    }
+  }
+}

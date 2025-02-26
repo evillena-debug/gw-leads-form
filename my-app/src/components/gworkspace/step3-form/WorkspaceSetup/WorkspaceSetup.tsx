@@ -6,7 +6,7 @@ interface WorkspaceSetupProps {}
 
 const WorkspaceSetup: React.FC<WorkspaceSetupProps> = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center h-full">
       <div className="flex flex-col overflow-hidden bg-black bg-opacity-0 max-w-[731px] w-full max-md:max-w-full">
         <div className="flex flex-col w-full bg-black bg-opacity-0 max-md:max-w-full">
           <div className="flex relative flex-col pb-36 w-full min-h-[552px] max-md:pb-24 max-md:max-w-full">

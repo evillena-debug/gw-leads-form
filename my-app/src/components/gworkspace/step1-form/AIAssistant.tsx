@@ -12,10 +12,10 @@ const AIAssistant: React.FC = () => {
         />
         <div className="mx-auto my-4 bg-white rounded-3xl shadow-[0_2px_10px_rgba(0,0,0,0.1)] w-[350px] max-md:w-full max-md:max-w-[350px] max-sm:w-full">
           <div className="p-4 text-xl font-medium text-indigo-400 border border-solid bg-slate-50 border-zinc-200 rounded-[25px_26px_0_0]">
-            How can I help you?
+            ¿Podemos ayudar en algo?
           </div>
           <div className="p-4 m-2 text-base font-semibold bg-white rounded-3xl text-neutral-400">
-            Help me create a marketing campaign
+            Nosotros necesitamos crear una campaña de Marketing
           </div>
           <div className="flex justify-around p-4 rounded-none border-solid bg-slate-100 border-[5px] border-stone-300">
             <RawImg

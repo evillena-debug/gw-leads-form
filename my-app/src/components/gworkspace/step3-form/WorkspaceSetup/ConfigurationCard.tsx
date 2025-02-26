@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import { FaExclamationCircle } from 'react-icons/fa';
 
-interface ConfigurationCardProps {}
+interface ConfigurationCardProps {
+  email: string;
+}
 
-const ConfigurationCard: React.FC<ConfigurationCardProps> = () => {
+const ConfigurationCard: React.FC<ConfigurationCardProps> = ({ email }) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
   return (
     <div className="bg-white rounded-lg shadow-md p-8 max-w-[681px] w-full max-md:max-w-full">
       <div className="flex relative flex-col flex-wrap gap-6 px-10 py-6 min-h-[201px] max-md:px-5">
@@ -15,15 +24,32 @@ const ConfigurationCard: React.FC<ConfigurationCardProps> = () => {
           />
           <div className="flex flex-col grow shrink-0 basis-0 w-fit max-md:max-w-full">
             <div className="flex flex-col px-1 w-full font-semibold max-md:max-w-full">
-              <div className="flex flex-wrap gap-4 text-base leading-6 text-neutral-500">
+              <div className="grid grid-cols-[1fr_auto] gap-2 text-base leading-6 text-neutral-600">
                 <div className="flex-auto w-[433px] max-md:max-w-full">
-                  ¿Quieres usar evillena@getitsoluddtions.cl para configurar
-                  <br />
-                  Google Workspace?
+                  ¿Quieres usar <strong>{email}</strong> para configurar Google Workspace?
                 </div>
+                <FaExclamationCircle
+                  onClick={openModal}
+                  className="cursor-pointer text-blue-500"
+                  style={{
+                    blockSize: "var(--gm3-icon-button-standard-touch-target-size, 24px)",
+                    inlineSize: "var(--gm3-icon-button-standard-touch-target-size, 24px)",
+                    alignSelf: "center",
+                  }}
+                />
               </div>
-              <div className="self-start mt-2 text-sm leading-5 text-zinc-500">
-                Usarás este correo electronico para acceder a Gmail, Documentos,
+              <div
+                className="self-start mt-4 text-sm leading-5 text-neutral-800"
+                style={{
+                  fontFamily: "Google Sans Text",
+                  fontSize: ".875rem",
+                  fontWeight: 400,
+                  letterSpacing: 0,
+                  lineHeight: "1.25rem",
+                  margin: "4px 0 0",
+                }}
+              >
+                Usarás este correo electrónico para acceder a Gmail, Documentos,
                 <br /> Drive, Calendario y otros servicios
               </div>
             </div>
@@ -43,6 +69,47 @@ const ConfigurationCard: React.FC<ConfigurationCardProps> = () => {
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Configurar Google Workspace"
+        className="modal"
+        overlayClassName="modal-overlay"
+      >
+        <h2 style={{
+          fontFamily: "Google Sans",
+          fontSize: "1.375rem",
+          fontWeight: 400,
+          letterSpacing: 0,
+          lineHeight: "1.75rem",
+          margin: 0
+        }}>
+          Configurar Google Workspace
+        </h2>
+        <p style={{
+          fontFamily: "Google Sans Text",
+          fontSize: ".875rem",
+          fontWeight: 400,
+          letterSpacing: 0,
+          lineHeight: "1.25rem",
+          margin: "24px 0 0"
+        }}>
+          Si te registras con <strong>{email}</strong>, seguirás usando tus apps de correo electrónico y calendario actuales. De manera opcional, puedes optar por usar Gmail y Calendario de Google con esta dirección de correo electrónico. Para hacerlo, deberás verificar la propiedad de dete.cl más adelante.
+        </p>
+        <p style={{
+          fontFamily: "Google Sans Text",
+          fontSize: ".875rem",
+          fontWeight: 400,
+          letterSpacing: 0,
+          lineHeight: "1.25rem",
+          margin: "24px 0 0"
+        }}>
+          Si prefieres crear una nueva dirección de correo electrónico personalizada, como tú@tu-empresa.com, te recomendamos configurar Google Workspace con un dominio. Si no eres propietario de un dominio, te ayudaremos a encontrar uno.
+        </p>
+        <button onClick={closeModal} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+          Cerrar
+        </button>
+      </Modal>
     </div>
   );
 };
